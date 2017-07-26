@@ -1,5 +1,6 @@
-Fuchsia Open Source Template Repository
-=======================================
+# FIDL Language Support for Visual Studio Code
 
-This repository is a template that we will use when creating new open source
-repositories for Fuchsia.
+This extension adds syntax highlighting to [FIDL][fidl] files in VS Code.
+
+
+[fidl]: https://fuchsia.googlesource.com/fidl

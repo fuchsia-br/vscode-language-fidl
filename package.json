@@ -1,0 +1,28 @@
+{
+    "name": "language-fidl",
+    "displayName": "FIDL Language Support",
+    "description": "Syntax highlighting support for FIDL files",
+    "license": "SEE LICENSE IN LICENSE",
+    "version": "0.0.1",
+    "publisher": "fuchsia-authors",
+    "engines": {
+        "vscode": "^1.10.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "fidl",
+            "aliases": ["FIDL", "fidl"],
+            "extensions": [".fidl"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "fidl",
+            "scopeName": "source.fidl",
+            "path": "./syntaxes/fidl.tmLanguage.json"
+        }]
+    },
+    "homepage": "https://fuchsia.googlesource.com/vscode-language-fidl"
+}
