@@ -1,9 +1,9 @@
 {
     "name": "language-fidl",
     "displayName": "FIDL Language Support",
-    "description": "Syntax highlighting support for FIDL files",
+    "description": "Support for FIDL files",
     "license": "SEE LICENSE IN LICENSE",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "publisher": "fuchsia-authors",
     "engines": {
         "vscode": "^1.10.0"
@@ -11,23 +11,54 @@
     "categories": [
         "Languages"
     ],
+    "activationEvents": [
+        "onCommand:extension.goToFidlSource"
+    ],
+    "main": "./out/extension",
     "contributes": {
-        "languages": [{
-            "id": "fidl",
-            "aliases": ["FIDL", "fidl"],
-            "extensions": [".fidl"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "fidl",
-            "scopeName": "source.fidl",
-            "path": "./syntaxes/fidl.tmLanguage.json"
-        }]
+        "languages": [
+            {
+                "id": "fidl",
+                "aliases": [
+                    "FIDL",
+                    "fidl"
+                ],
+                "extensions": [
+                    ".fidl"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "fidl",
+                "scopeName": "source.fidl",
+                "path": "./syntaxes/fidl.tmLanguage.json"
+            }
+        ],
+        "commands": [
+            {
+                "command": "extension.goToFidlSource",
+                "title": "FIDL: Go To Source"
+            }
+        ]
     },
     "homepage": "https://fuchsia.googlesource.com/vscode-language-fidl",
     "repository": {
         "type": "git",
         "url": "https://fuchsia.googlesource.com/vscode-language-fidl"
     },
-    "icon": "images/fuchsia_logo_128x128.png"
+    "icon": "images/fuchsia_logo_128x128.png",
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "tslint": "^5.8.0",
+        "@types/node": "^7.0.43"
+    }
 }
