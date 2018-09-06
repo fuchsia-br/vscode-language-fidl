@@ -1,68 +1,69 @@
 {
-    "name": "language-fidl",
-    "displayName": "FIDL Language Support",
-    "description": "Support for FIDL files",
-    "license": "SEE LICENSE IN LICENSE",
-    "version": "0.0.3",
-    "publisher": "fuchsia-authors",
-    "engines": {
-        "vscode": "^1.10.0"
-    },
-    "categories": [
-        "Languages"
-    ],
-    "activationEvents": [
-        "onCommand:extension.goToFidlSource"
-    ],
-    "main": "./out/extension",
-    "contributes": {
-        "languages": [
-            {
-                "id": "fidl",
-                "aliases": [
-                    "FIDL",
-                    "fidl"
-                ],
-                "extensions": [
-                    ".fidl"
-                ],
-                "configuration": "./language-configuration.json"
-            }
+  "name": "language-fidl",
+  "displayName": "FIDL Language Support",
+  "description": "Support for FIDL files",
+  "license": "SEE LICENSE IN LICENSE",
+  "version": "0.0.3",
+  "publisher": "fuchsia-authors",
+  "engines": {
+    "vscode": "^1.10.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onCommand:extension.goToFidlSource"
+  ],
+  "main": "./out/extension",
+  "contributes": {
+    "languages": [
+      {
+        "id": "fidl",
+        "aliases": [
+          "FIDL",
+          "fidl"
         ],
-        "grammars": [
-            {
-                "language": "fidl",
-                "scopeName": "source.fidl",
-                "path": "./syntaxes/fidl.tmLanguage.json"
-            }
+        "extensions": [
+          ".fidl"
         ],
-        "commands": [
-            {
-                "command": "extension.goToFidlSource",
-                "title": "FIDL: Go To Source"
-            }
-        ]
-    },
-    "homepage": "https://fuchsia.googlesource.com/vscode-language-fidl",
-    "repository": {
-        "type": "git",
-        "url": "https://fuchsia.googlesource.com/vscode-language-fidl"
-    },
-    "icon": "images/fuchsia_logo_128x128.png",
-    "scripts": {
-        "vscode:prepublish": "npm run compile",
-        "compile": "tsc -p ./",
-        "watch": "tsc -watch -p ./",
-        "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "mocha --require ts-node/register ./test/*.test.ts"
-    },
-    "devDependencies": {
-        "@types/mocha": "^2.2.48",
-        "@types/node": "^7.0.43",
-        "mocha": "^5.0.1",
-        "ts-node": "^5.0.1",
-        "tslint": "^5.8.0",
-        "typescript": "^2.6.1",
-        "vscode": "^1.1.6"
-    }
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "fidl",
+        "scopeName": "source.fidl",
+        "path": "./syntaxes/fidl.tmLanguage.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "extension.goToFidlSource",
+        "title": "FIDL: Go To Source"
+      }
+    ]
+  },
+  "homepage": "https://fuchsia.googlesource.com/vscode-language-fidl",
+  "repository": {
+    "type": "git",
+    "url": "https://fuchsia.googlesource.com/vscode-language-fidl"
+  },
+  "icon": "images/fuchsia_logo_128x128.png",
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "mocha --require ts-node/register ./test/*.test.ts",
+    "build-syntax": "ts-node ./generate-syntax.ts > ./syntaxes/fidl.tmLanguage.json"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.48",
+    "@types/node": "^7.0.43",
+    "mocha": "^5.0.1",
+    "ts-node": "^5.0.1",
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.1",
+    "vscode": "^1.1.6"
+  }
 }

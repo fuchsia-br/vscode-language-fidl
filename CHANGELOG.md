@@ -4,4 +4,8 @@
 
 # v0.0.3
 
- - Offer a "FIDL: Go To Source" command to jump from generated bindings to FIDL source when working in the Fuchsia tree.
+- Offer a "FIDL: Go To Source" command to jump from generated bindings to FIDL source when working in the Fuchsia tree.
+
+# v0.1.0
+
+- FIDL2 syntax highlighting.
